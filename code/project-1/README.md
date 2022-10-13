@@ -1,30 +1,29 @@
-# Whack-a-mole (colors)
+# Simon (colors)
 
 ## Background
-- Gamme Choice: Whack-a-mole
-The classic arcarde game of whack-a-mole using colors instead of moles and a pointer instead of a hammer
+- Game Choice: Simon says where you need to follow the sequence of colored blocks
 
 ## Wireframe
-![Whack-a-mole wireframe](img/Untitled%20-%20May%2020%2C%202022%2018.48.jpg)
+![Simon wireframe](img/Untitled%20-%20May%2020%2C%202022%2018.48.jpg)
 
 ### PseudoCode
 ```js
-function moleHit() {
-- did the player hit the mole
-- possibly display 'hit'
+function correct() {
+- did the player hit the correct color
+- possibly display something to give positive feedback
 }
 
-function moleMiss() {
-- did the player miss the mole
-- possibly display 'miss'
+function wrong() {
+- did the player miss the correct sequence
+- possibly display 'wrong/incorrect' message
 }
 
 function points (){
-- give points per mole hit
-- maybe bonus points for how fast the mole was clicked on
+- give points per corrct color
+- maybe bonus points for how fast the sequence was clicked on
 }
 
-- event element for when the mole is clicked
+- event element for when the color is clicked
 
 - store highest points
 
@@ -32,29 +31,29 @@ function points (){
 
 - add functionality for start, stop, and reset buttons
 
-- decide time intervals between moles popping up
+- decide time intervals between colors popping up
 
-- randomize mole placement
+- randomize color placement
 
+- game over pop up
 ```html
 
 <body>
-<h1>Whack-a-Mole!</h1>
+<h1>Simon Says!</h1>
     <div class = 'board'>  
-        <div data-grid='1' class = 'hole'></div>
-        <div data-grid='2'class = 'hole'></div>
-        <div data-grid='3'class = 'hole'></div>
-        <div data-grid='4'class = 'hole'></div>
-        <div data-grid='5'class = 'hole'></div>
-        <div data-grid='6'class = 'hole'></div>
-        <div data-grid='7'class = 'hole'></div>
-        <div data-grid='8'class = 'hole'></div>
-        <div data-grid='9'class = 'hole'></div>
-        <div data-grid='10'class = 'hole'></div>
-        <div data-grid='11'class = 'hole'></div>
-        <div data-grid='12'class = 'hole'></div>
+        <div data-grid='1'class = 'block'></div>
+        <div data-grid='2'class = 'block'></div>
+        <div data-grid='3'class = 'block'></div>
+        <div data-grid='4'class = 'block'></div>
+        <div data-grid='5'class = 'block'></div>
+        <div data-grid='6'class = 'block'></div>
+        <div data-grid='7'class = 'block'></div>
+        <div data-grid='8'class = 'block'></div>
+        <div data-grid='9'class = 'block'></div>
+        <div data-grid='10'class = 'block'></div>
+        <div data-grid='11'class = 'block'></div>
+        <div data-grid='12'class = 'block'></div>
     </div>
-<div id = 'mole'></div> (maybe multiple different moles)
 <button id = 'reset'>reset</button> 
 </body>    
 ```css
@@ -63,17 +62,13 @@ function points (){
 }
 
 h1 {
-    
+
 }
 
 .board {
 display: grid
 grid-template-columns:
 grd-template-rows: 
-}
-
-#mole {
-
 }
 
 #reset {
