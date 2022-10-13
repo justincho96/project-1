@@ -4,7 +4,7 @@
 - Game Choice: Simon says where you need to follow the sequence of colored blocks
 
 ## Wireframe
-![Simon wireframe](img/Untitled%20-%20May%2020%2C%202022%2018.48.jpg)
+![Simon wireframe](img/Untitled%20-%20May%2020%2C%202022%2018.48%203.jpg)
 
 ### PseudoCode
 ```js
