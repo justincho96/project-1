@@ -1,8 +1,24 @@
-const blocks = document.querySelectorAll('.block')
+const blocks = document.querySelectorAll('.block');
 
-blocks.forEach(function (block){
-    block.addEventListener('click', onBlocksClicked)
+// console.log(block);
 
-    function onBlocksClicked(event)
-    console.log('clicked');
+// block.addEventListener('click', function () {
+// console.log('clicked')
+// })
+
+
+
+
+
+
+
+
+
+const onBlockClicked = function (event) {
+    console.log('click')
+}
+// block.addEventListener('click', onBlockClicked())
+
+blocks.forEach(function (block) {
+    block.addEventListener('click', onBlockClicked)
 })
