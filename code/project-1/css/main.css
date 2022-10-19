@@ -18,11 +18,24 @@ justify-content: center;
 
 .block {
 color: black;
+background: white;
 display: flex;
 align-items: center;
 justify-content: center;
 font-size: 30px;
 border: 1px solid black;
+}
+
+.blockBack {
+    background: red;
+}
+
+.blockBack2{
+    background:blue;
+}
+
+.blockBack3 {
+    background: yellow;
 }
 
 /* #reset {
