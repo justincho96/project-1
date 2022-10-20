@@ -11,13 +11,13 @@ text-align: center;
 
 .board {
 display: grid;
-grid-template-columns: 50px 50px 50px 50px;
-grid-template-rows: 50px 50px 50px;
+grid-template-columns: 50px 50px;
+grid-template-rows: 50px 50px;
 justify-content: center;
 }
 
 .block {
-color: black;
+color: white;
 background: white;
 display: flex;
 align-items: center;
@@ -26,18 +26,29 @@ font-size: 30px;
 border: 1px solid black;
 }
 
-.blockBack {
+.blockBack1 {
     background: red;
+    color:red;
+    border: 1px solid black;
 }
 
 .blockBack2{
     background:blue;
+    color:blue;
+    border: 1px solid black;
 }
 
 .blockBack3 {
     background: yellow;
+    color:yellow;
+    border: 1px solid black;
 }
 
+.blockBack4 {
+    background: green;
+    color:green;
+    border: 1px solid black;
+}
 /* #reset {
     
 } */
