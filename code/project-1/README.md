@@ -1,77 +1,23 @@
-# Simon (colors)
+# Simon Says!
+- The classic game of Simon Says on your screen! Follow the flashing colors in the correct order to win!
 
-## Background
-- Game Choice: Simon says where you need to follow the sequence of colored blocks
+![Home Page for Simon Says!](img/Home%20Page.png)
 
-## Wireframe
-![Simon wireframe](img/Untitled%20-%20May%2020%2C%202022%2018.48%203.jpg)
+### Technologies
+This game uses:
+- HTML
+- CSS
+- JavaScripit
 
-### PseudoCode
-```js
-function correct() {
-- did the player hit the correct color
-- possibly display something to give positive feedback
-}
+# Getting Started
+- To play Simon Says! just follow the link below:
 
-function wrong() {
-- did the player miss the correct sequence
-- possibly display 'wrong/incorrect' message
-}
 
-function points (){
-- give points per corrct color
-- maybe bonus points for how fast the sequence was clicked on
-}
+Once you're at the site, just follow the simple instructions on the game's home page!
 
-- event element for when the color is clicked
+![Example of gameplay/instructions](img/Simon%20Blinking%3A%20Stage%20number.png)
 
-- store highest points
+# Next Steps
+- I would love to get the dfficulty scaling done! I want to crete multiple different stages the player must go through all with increasing difficulty! Some of these difficulty improvements would include an increase in the number of colors to follow and the loss of progress for incorrect answers!
 
-- set a timer
-
-- add functionality for start, stop, and reset buttons
-
-- decide time intervals between colors popping up
-
-- randomize color placement
-
-- game over pop up
-```html
-
-<body>
-<h1>Simon Says!</h1>
-    <div class = 'board'>  
-        <div data-grid='1'class = 'block'></div>
-        <div data-grid='2'class = 'block'></div>
-        <div data-grid='3'class = 'block'></div>
-        <div data-grid='4'class = 'block'></div>
-        <div data-grid='5'class = 'block'></div>
-        <div data-grid='6'class = 'block'></div>
-        <div data-grid='7'class = 'block'></div>
-        <div data-grid='8'class = 'block'></div>
-        <div data-grid='9'class = 'block'></div>
-        <div data-grid='10'class = 'block'></div>
-        <div data-grid='11'class = 'block'></div>
-        <div data-grid='12'class = 'block'></div>
-    </div>
-<button id = 'reset'>reset</button> 
-</body>    
-```css
-.body{
-
-}
-
-h1 {
-
-}
-
-.board {
-display: grid
-grid-template-columns:
-grd-template-rows: 
-}
-
-#reset {
-
-}
-
+- Other improvements I would love would be aestheic ones. Simon Says could definitely use a makeover!
