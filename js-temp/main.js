@@ -1,13 +1,4 @@
-let simonOrder = []
-let playerOrder = []
-let blink
-let level
-let playerTurn
-let correctOrder
-let simonTurn
-let intervalId
-let win
-
+// constants
 const blocks = document.querySelectorAll('.blocks')
 const back1 = document.querySelector ('.blockBack1')
 const back2 = document.querySelector ('.blockBack2')
@@ -19,6 +10,18 @@ const resetButton = document.querySelector ('#reset')
 const hardButton = document.querySelector('#hard')
 const levelText = document.querySelector('.stage')
 
+//variables
+let simonOrder = []
+let playerOrder = []
+let blink
+let level
+let playerTurn
+let correctOrder
+let simonTurn
+let intervalId
+let win
+
+// event listeners
 hardButton.addEventListener('click', (event) => {
     if (hardButton.clicked === true) {
         hard = true;
@@ -41,6 +44,65 @@ startButton.addEventListener('click', (event) => {
         play()
     }
 })
+
+back1.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(1)
+        check()
+        red()
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300)
+        }
+    }
+})
+
+back2.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(2);
+        check()
+        blue()
+        if(!win) {
+            setTimeout(() => {
+                clearColor()
+            }, 300)
+        }
+    }
+})
+
+back3.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(3);
+        check()
+        yellow()
+        if(!win) {
+            setTimeout(() => {
+                clearColor()
+            }, 300)
+        }
+    }
+})
+
+back4.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(4)
+        check()
+        green()
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300)
+        }
+    }
+})
+
+// functions
+function turnOrder() {
+    simonTurn = true
+    blink = 0
+    playerOrder = []
+}
 
 function play() {
 win = false
@@ -109,58 +171,6 @@ function flashColor () {
     back4.style.backgroundColor = 'lime'
 }
 
-back1.addEventListener('click', (event) => {
-    if (reset) {
-        playerOrder.push(1)
-        check()
-        red()
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300)
-        }
-    }
-})
-
-back2.addEventListener('click', (event) => {
-    if (reset) {
-        playerOrder.push(2);
-        check()
-        blue()
-        if(!win) {
-            setTimeout(() => {
-                clearColor()
-            }, 300)
-        }
-    }
-})
-
-back3.addEventListener('click', (event) => {
-    if (reset) {
-        playerOrder.push(3);
-        check()
-        yellow()
-        if(!win) {
-            setTimeout(() => {
-                clearColor()
-            }, 300)
-        }
-    }
-})
-
-back4.addEventListener('click', (event) => {
-    if (reset) {
-        playerOrder.push(4)
-        check()
-        green()
-        if(!win) {
-            setTimeout(() => {
-                clearColor();
-            }, 300)
-        }
-    }
-})
-
 function check () {
     if (playerOrder[playerOrder.length - 1] !== simonOrder[playerOrder.length - 1])
     
@@ -180,21 +190,17 @@ function check () {
             if(hard) {
                 play()
             } else {
-                simonTurn = true
-                blink = 0
-                playerOrder = []
+                turnOrder()
                 correctOrder = true
                 intervalId = setInterval(gameTurn, 1000)
             }
-        }, 600)
+        }, 1000)
 
     } 
 
     if (level == playerOrder.length && correctOrder && !win) {
     level++
-    playerOrder = []
-    simonTurn = true
-    blink = 0
+    turnOrder()
     intervalId = setInterval(gameTurn, 1000)
   }
     

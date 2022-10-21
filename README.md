@@ -11,7 +11,7 @@ This game uses:
 
 # Getting Started
 - To play Simon Says! just follow the link below:
-
+https://justincho96.github.io/project-1/
 
 Once you're at the site, just follow the simple instructions on the game's home page!
 
@@ -21,3 +21,6 @@ Once you're at the site, just follow the simple instructions on the game's home 
 - I would love to get the dfficulty scaling done! I want to crete multiple different stages the player must go through all with increasing difficulty! Some of these difficulty improvements would include an increase in the number of colors to follow and the loss of progress for incorrect answers!
 
 - Other improvements I would love would be aestheic ones. Simon Says could definitely use a makeover!
+
+#Sources
+- Methods were referenced from https://github.com/beaucarnes/simon-game. His guide was a huge help in making this game possible!
