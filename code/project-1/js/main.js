@@ -54,3 +54,45 @@ for (var i = 0; i < 20; i++)
 
   intervalId = setInterval(gameTurn, 1000);
 }
+
+function gameTurn () {
+    reset = false;
+
+    if (blink == turn) {
+        clearInterval(intervalId);
+        simonTurn = false;
+        clearColor();
+        reset = true; 
+    }
+
+    if (simonTurn) {
+        clearColor();
+        setTimeout(() => {
+            if (simonOrder[blink] === 1) red();
+            if (simonOrder[blink] === 2) blue();
+            if (simonOrder[blink] === 3) yellow();
+            if (simonOrder[blink] === 4) green();
+            blink++;
+        }, 300);
+    }
+}
+
+function red(event) {
+    back1.getElementsByClassName.backgroundColor = 'pink';
+}
+function blue(event) {
+    back2.getElementsByClassName.backgroundColor = 'cyan';
+}
+function yellow(event) {
+    back3.getElementsByClassName.backgroundColor = 'white';
+}
+function green(event) {
+    back4.getElementsByClassName.backgroundColor = 'lime';
+}
+
+function clearColor () {
+    back1.getElementsByClassName.backgroundColor = 'pink';
+    back2.getElementsByClassName.backgroundColor = 'cyan';
+    back3.getElementsByClassName.backgroundColor = 'white';
+    back4.getElementsByClassName.backgroundColor = 'lime';
+}
