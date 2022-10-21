@@ -17,18 +17,12 @@ justify-content: center;
 }
 
 .block {
-color: white;
-background: white;
 display: flex;
 align-items: center;
 justify-content: center;
 font-size: 30px;
 border: 1px solid black;
 cursor: pointer;
-}
-
-.flash {
-background-color: white;
 }
 
 .blockBack1 {
@@ -48,4 +42,8 @@ background-color: white;
 }
 #reset {
     cursor: pointer;
+}
+
+.flash {
+background-color: white;
 }
