@@ -1,92 +1,56 @@
-const blocks = document.querySelectorAll('.block');
+let simonOrder = [];
+let playerOrder = [];
+let blink;
+let level;
+let playerTurn;
+let correctOrder;
+let simonTurn;
+let intervalId;
+let win;
 
-const back1 = document.querySelector('.blockBack1');
-const back2 = document.querySelector('.blockBack2');
-const back3 = document.querySelector('.blockBack3');
-const back4 = document.querySelector('.blockBack4');
+const blocks = document.querySelectorAll('.blocks');
+const back1 = document.querySelector ('.blockBack1');
+const back2 = document.querySelector ('.blockBack2');
+const back3 = document.querySelector ('.blockBack3');
+const back4= document.querySelector ('.blockBack4');
+const blockBacks = [back1, back2, back3, back4]
+const startButton = document.querySelector('#start');
+const resetButton = document.querySelector ('#reset')
+const hardButton = document.querySelector('#hard')
 
- const backs = [back1, back2, back3, back4];
-
-const getRandomBack = () => {
-   
-
-    return backs[parseInt(Math.random() * backs.length)];
-};
-
-const simonOrder = [getRandomBack()];
-let guessOrder = [...simonOrder];
-
-const blink = back => {
-    return new Promise (resolve => {
-        back.className += ' flash';
-        setTimeout(() => {
-            back.className = back.className.replace(' flash', '');
-           setTimeout (() => { resolve();
-          }, 200);
-    }, 1000);
-    });
-};
-
-let clickable = false;
-
-const onBackClicked = backClicked => {
-    if (clickable = false) return;
-    const expectedBack = guessOrder.shift();
-    if (expectedBack === backClicked) {
-        if (guessOrder.length === 0) {
-            simonOrder.push(getRandomBack());
-            guessOrder = [...simonOrder];
-            startBlinking();
-        }
+hardButton.addEventListener('click', (event) => {
+    if (hardButton.clicked === true) {
+        hard = true;
     } else {
-        alert('game over');
+        strict = false;
     }
-};
-
-// blocks.forEach((event) => {
-//     event.addEventListener('click', onBackClicked) 
-//             console.log ('click')       
-// })
-
-const startBlinking = async () => {
-    clickable = false;
-    for (const back of simonOrder) {
-       await blink(back); 
+})
+resetButton.addEventListener('click', (event) => {
+    if (resetButton.clicked === true) {
+        start = true;
+    } else {
+        start = false;
+        clearInterval(intervalId);
     }
-    clickable = true;
-};
+})      
 
-startBlinking();
-// const randomOrder = function () {
-//     return blockBacks[parseInt(Math.random() * blockBacks.length)];
-
-// };
-
-// const simonOrder = [back1, back2, back3, back4];
-
-
-// const onBlockClicked = (event) => {
-
-//    blockEmpty(event.target)
-
-//    setTimeout( () => {
-//     blockFull(event.target)}, 1000)
-// }
-
-blocks.forEach(function (block) {
-    block.addEventListener('click', onBackClicked)
+startButton.addEventListener('click', (event) => {
+    if (reset || win) {
+        play();
+    }
 })
 
-// const playerTimer = function () {
-//     console.log("OUT OF TIME!")
-// }
+function play() {
+win = false;
+order = [];
+playerOrder = [];
+blink = 0;
+intervalId = 0;
+turn =1;
+correct = true;
+for (var i = 0; i < 20; i++)
+    simonOrder.push(Math.floor(Math.random() * 4) +1);
+  simonTurn =true;
 
-// const blockEmpty = function (block) {
-
-//     block.classList.remove('blockBack1');
-//     block.classList.remove('blockBack2');
-//     block.classList.remove('blockBack3');
-//     block.classList.remove('blockBack4');
-
-//     setTimeout(playerTimer, 3000)
-// }
+  intervalId = setInterval(gameTurn, 1000);
+}
