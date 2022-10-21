@@ -77,22 +77,24 @@ function gameTurn () {
     }
 }
 
-function red(event) {
-    back1.getElementsByClassName.backgroundColor = 'pink';
+function red() {
+    back1.style.backgroundColor = 'pink';
 }
 function blue(event) {
-    back2.getElementsByClassName.backgroundColor = 'cyan';
+    back2.style.backgroundColor = 'cyan';
 }
 function yellow(event) {
-    back3.getElementsByClassName.backgroundColor = 'white';
+    back3.style.backgroundColor = 'white';
 }
 function green(event) {
-    back4.getElementsByClassName.backgroundColor = 'lime';
+    back4.style.backgroundColor = 'lime';
 }
 
 function clearColor () {
-    back1.getElementsByClassName.backgroundColor = 'pink';
-    back2.getElementsByClassName.backgroundColor = 'cyan';
-    back3.getElementsByClassName.backgroundColor = 'white';
-    back4.getElementsByClassName.backgroundColor = 'lime';
+    back1.style.backgroundColor = 'red';
+    back2.style.backgroundColor = 'blue';
+    back3.style.backgroundColor = 'yellow';
+    back4.style.backgroundColor = 'green';
 }
+
+
