@@ -1,14 +1,6 @@
 // constants
-const blocks = document.querySelectorAll('.blocks')
-const back1 = document.querySelector ('.blockBack1')
-const back2 = document.querySelector ('.blockBack2')
-const back3 = document.querySelector ('.blockBack3')
-const back4= document.querySelector ('.blockBack4')
 const blockBacks = [back1, back2, back3, back4]
-const startButton = document.querySelector('#start')
-const resetButton = document.querySelector ('#reset')
-const hardButton = document.querySelector('#hard')
-const levelText = document.querySelector('.stage')
+
 
 //variables
 let simonOrder = []
@@ -21,6 +13,17 @@ let simonTurn
 let intervalId
 let win
 
+// cached elements
+const blocks = document.querySelectorAll('.blocks')
+const back1 = document.querySelector ('.blockBack1')
+const back2 = document.querySelector ('.blockBack2')
+const back3 = document.querySelector ('.blockBack3')
+const back4= document.querySelector ('.blockBack4')
+const startButton = document.querySelector('#start')
+const resetButton = document.querySelector ('#reset')
+const hardButton = document.querySelector('#hard')
+const levelText = document.querySelector('.stage')
+
 // event listeners
 hardButton.addEventListener('click', (event) => {
     if (hardButton.clicked === true) {
@@ -32,9 +35,9 @@ hardButton.addEventListener('click', (event) => {
 
 resetButton.addEventListener('click', (event) => {
     if (resetButton.clicked === true) {
-        start = true
+        reset = true
     } else {
-        start = false;
+        reset = false;
         clearInterval(intervalId)
     }
 })   
