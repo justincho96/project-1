@@ -38,7 +38,7 @@ startButton.addEventListener('click', (event) => {
     if (reset || win) {
         play();
     }
-})
+});
 
 function play() {
 win = false;
@@ -46,19 +46,21 @@ simonOrder = [];
 playerOrder = [];
 blink = 0;
 intervalId = 0;
-turn =1;
+level = 1;
 correct = true;
-for (var i = 0; i < 20; i++)
-    simonOrder.push(Math.floor(Math.random() * 4) +1);
-  simonTurn =true;
+for (let i = 0; i < 4; i++) {
+    simonOrder.push(Math.floor(Math.random() * 4) + 1);
+    console.log(simonOrder)
+}
+   simonTurn = true;
 
   intervalId = setInterval(gameTurn, 1000);
 }
 
-function gameTurn () {
+function gameTurn() {
     reset = false;
 
-    if (blink == turn) {
+    if (blink == level) {
         clearInterval(intervalId);
         simonTurn = false;
         clearColor();
@@ -80,13 +82,13 @@ function gameTurn () {
 function red() {
     back1.style.backgroundColor = 'pink';
 }
-function blue(event) {
+function blue() {
     back2.style.backgroundColor = 'cyan';
 }
-function yellow(event) {
+function yellow() {
     back3.style.backgroundColor = 'white';
 }
-function green(event) {
+function green() {
     back4.style.backgroundColor = 'lime';
 }
 
@@ -97,10 +99,17 @@ function clearColor () {
     back4.style.backgroundColor = 'green';
 }
 
+function flashColor () {
+    back1.style.backgroundColor = 'pink';
+    back2.style.backgroundColor = 'cyan';
+    back3.style.backgroundColor = 'white';
+    back4.style.backgroundColor = 'lime';
+}
+
 back1.addEventListener('click', (event) => {
     if (reset) {
         playerOrder.push(1);
-        //check();
+        check();
         red();
         if(!win) {
             setTimeout(() => {
@@ -112,8 +121,8 @@ back1.addEventListener('click', (event) => {
 
 back2.addEventListener('click', (event) => {
     if (reset) {
-        playerOrder.push(1);
-        //check();
+        playerOrder.push(2);
+        check();
         blue();
         if(!win) {
             setTimeout(() => {
@@ -125,8 +134,8 @@ back2.addEventListener('click', (event) => {
 
 back3.addEventListener('click', (event) => {
     if (reset) {
-        playerOrder.push(1);
-        ///check();
+        playerOrder.push(3);
+        check();
         yellow();
         if(!win) {
             setTimeout(() => {
@@ -138,8 +147,8 @@ back3.addEventListener('click', (event) => {
 
 back4.addEventListener('click', (event) => {
     if (reset) {
-        playerOrder.push(1);
-        //check();
+        playerOrder.push(4);
+        check();
         green();
         if(!win) {
             setTimeout(() => {
@@ -149,3 +158,44 @@ back4.addEventListener('click', (event) => {
     }
 })
 
+function check () {
+    if (playerOrder[playerOrder.length - 1] !== simonOrder[playerOrder.length - 1])
+    correctOrder = false;
+
+    if (playerOrder.length == 4 && correctOrder) {
+        beatSimon();
+    }
+
+    if (correctOrder == false) {
+        flashColor();
+        setTimeout(() => {
+            clearColor();
+
+            if(hard) {
+                play();
+            } else {
+                simonTurn = true;
+                blink = 0;
+                playerOrder = [];
+                correctOrder = true;
+                intervalId = setInterval(gameTurn, 1000);
+            }
+        }, 600);
+
+    } 
+
+    if (level == playerOrder.length && correctOrder && !win) {
+    level++;
+    playerOrder = [];
+    simonTurn = true;
+    blink = 0;
+    intervalId = setInterval(gameTurn, 1000)
+  }
+    
+}
+
+function beatSimon() {
+    flashColor();
+    reset = false;
+    win = true;
+}

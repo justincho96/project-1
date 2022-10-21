@@ -73,6 +73,10 @@ p4 {
     cursor: pointer;
 }
 
+#hard {
+    cursor: pointer;
+}
+
 .flash {
 background-color: white;
 }
