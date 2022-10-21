@@ -47,7 +47,7 @@ playerOrder = [];
 blink = 0;
 intervalId = 0;
 level = 1;
-correct = true;
+correctOrder = true;
 for (let i = 0; i < 4; i++) {
     simonOrder.push(Math.floor(Math.random() * 4) + 1);
     console.log(simonOrder)
@@ -160,6 +160,7 @@ back4.addEventListener('click', (event) => {
 
 function check () {
     if (playerOrder[playerOrder.length - 1] !== simonOrder[playerOrder.length - 1])
+    
     correctOrder = false;
 
     if (playerOrder.length == 4 && correctOrder) {
