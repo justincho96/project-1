@@ -42,7 +42,7 @@ startButton.addEventListener('click', (event) => {
 
 function play() {
 win = false;
-order = [];
+simonOrder = [];
 playerOrder = [];
 blink = 0;
 intervalId = 0;
@@ -97,4 +97,55 @@ function clearColor () {
     back4.style.backgroundColor = 'green';
 }
 
+back1.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(1);
+        //check();
+        red();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+back2.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(1);
+        //check();
+        blue();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+back3.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(1);
+        ///check();
+        yellow();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+back4.addEventListener('click', (event) => {
+    if (reset) {
+        playerOrder.push(1);
+        //check();
+        green();
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
 
